@@ -32,9 +32,11 @@ function Game() {
         if (coinSide === chosenSide) {
             setResult('Win');
             handleTransaction(true);
+            return coinSide
         } else {
             setResult('Lose');
             handleTransaction(false);
+            return coinSide
         }
         console.log("coinside", coinSide)
     };
@@ -103,7 +105,7 @@ function Game() {
 
                 </div>
               
-                <Coin result={result} selectedSide={chosenSide} flipCoin={flipCoin} wallet={wallet}/>
+                <Coin  selectedSide={chosenSide} flipCoin={flipCoin} wallet={wallet}/>
             </div>
             {result && <p className={`${result === "Win" ? "text-emerald-400" : "text-red-500"} text-2xl text-center`}>Result: You {result}!</p>}
 
